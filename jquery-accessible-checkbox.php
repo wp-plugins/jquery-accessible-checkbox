@@ -3,9 +3,9 @@
 Plugin Name: JQuery Accessible Checkbox
 Plugin URI: http://wordpress.org/extend/plugins/jquery-accessible-checkbox/
 Description: WAI-ARIA Enabled Checkbox Plugin for Wordpress
-Author: Theofanis Oikonomou, Kontotasiou Dionysia
-Version: 2.0
-Author URI: http://www.iti.gr/iti/people/ThOikon.html, http://www.iti.gr/iti/people/Dionisia_Kontotasiou.html
+Author: Kontotasiou Dionysia
+Version: 3.0
+Author URI: http://www.iti.gr/iti/people/Dionisia_Kontotasiou.html
 */
 
 add_action("plugins_loaded", "JQueryAccessibleCheckbox_init");
@@ -19,8 +19,8 @@ function JQueryAccessibleCheckbox_init() {
         wp_deregister_script('jquery');
 
         // add your own script
-        wp_register_script('jquery-1.4.2', ( get_bloginfo('wpurl') . '/wp-content/plugins/jquery-accessible-checkbox/lib/jquery-ui/jquery-1.4.2.js'));
-        wp_enqueue_script('jquery-1.4.2');
+        wp_register_script('jquery-1.6.4', ( get_bloginfo('wpurl') . '/wp-content/plugins/jquery-accessible-checkbox/lib/jquery-ui/jquery-1.6.4.js'));
+        wp_enqueue_script('jquery-1.6.4');
 
         wp_register_script('jquery.ui.core.js', ( get_bloginfo('wpurl') . '/wp-content/plugins/jquery-accessible-checkbox/lib/jquery-ui/ui/jquery.ui.core.js'));
         wp_enqueue_script('jquery.ui.core.js');
@@ -85,45 +85,15 @@ function JQueryAccessibleCheckboxContent() {
     
     echo '<div class="demo" role="application">
     <form>
-<input type="checkbox" id="check1" name="archivesButton" value="archives" /><label for="check1">' . $options['show'] . ' ' . $options['archives'] . '</label>
-<input type="checkbox" id="check2" name="postsButton" value="posts" /><label for="check2">' . $options['show'] . ' ' . $options['recent'] . ' ' . $options['posts'] . '</label>
-<input type="checkbox" id="check3" name="commentsButton" value="comments" /><label for="check3">' . $options['show'] . ' ' . $options['recent'] . ' ' . $options['comments'] . '</label>
+		<input type="checkbox" id="check1" name="archivesButton" value="archives" /><label for="check1">' . $options['show'] . ' ' . $options['archives'] . '</label>
+		<input type="checkbox" id="check2" name="postsButton" value="posts" /><label for="check2">' . $options['show'] . ' ' . $options['recent'] . ' ' . $options['posts'] . '</label>
+		<input type="checkbox" id="check3" name="commentsButton" value="comments" /><label for="check3">' . $options['show'] . ' ' . $options['recent'] . ' ' . $options['comments'] . '</label>
 
-
-<div class="areaBCheckbox_archives">
-	</div>
-	<div class="areaBCheckbox_recentPosts">
-	</div>
-	<div class="areaBCheckbox_recentComments">
-	</div>
-</form>';
-
-//objCheckBoxes[i].checked =
-//$archivesButton.checked = '0';
-//$postsButton = 'unchecked';
-//$commentsButton = 'unchecked';
-    // <br />
-    // <div id="accordion_withCheckbox">
-	// <h3 class="archivesA"><a href="#">' . $options['archives'] . '</a></h3>
-	// <div class="archivesCheckbox">
-            // <ul>
-                // <li>' . $options['text'] . '</li>
-            // </ul>
-	// </div>
-	// <h3 class="postsA"><a href="#">' . $options['recent'] . ' ' . $options['posts'] . '</a></h3>
-	// <div class="postsCheckbox">
-            // <ul>
-                // <li>' . $options['text'] . '</li>
-            // </ul>
-	// </div>
-	// <h3 class="commentsA"><a href="#">' . $options['recent'] . ' ' . $options['comments'] . '</a></h3>
-	// <div class="commentsCheckbox">
-            // <ul>
-                // <li>' . $options['text'] . '</li>
-            // </ul>
-	// </div>
-    // </div>
-// </div>';
+		<div class="areaBCheckbox_archives"></div>
+		<div class="areaBCheckbox_recentPosts"></div>
+		<div class="areaBCheckbox_recentComments"></div>
+		
+	</form>';
 }
 
 function JQueryAccessibleCheckbox_control() {
